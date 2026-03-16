@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ -z "$1" ]; then
+  cmd.exe /c start "" "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe" 2>/dev/null &
+else
+  cmd.exe /c start "" "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe" "$1" 2>/dev/null &
+fi

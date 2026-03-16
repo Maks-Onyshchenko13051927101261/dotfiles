@@ -1,0 +1,4 @@
+#!/bin/bash
+TARGET="${1:-.}"
+WIN_PATH=$(wslpath -w "$TARGET")
+cmd.exe /c start "" "C:\Program Files\JetBrains\PyCharm 2025.3.2.1\bin\pycharm64.exe" "$WIN_PATH" 2>/dev/null &

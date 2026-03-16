@@ -1,0 +1,2 @@
+#!/bin/bash
+cmd.exe /c start "" "C:\Users\maks_\AppData\Local\Programs\Notion\Notion.exe" "$1" 2>/dev/null &
