@@ -1,0 +1,14 @@
+# Тимчасові файли системи
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+
+# Логи
+*.log
+
+# Якщо раптом з'являться папки ідеї чи секрети
+.idea/
+.vscode/
+*.env
+node_modules/
