@@ -1,0 +1,67 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": 
+    [
+        {
+            "command": 
+            {
+                "action": "quakeMode"
+            },
+            "id": "User.quakeMode.F1E129A4"
+        }
+    ],
+    "alwaysOnTop": false,
+    "centerOnLaunch": false,
+    "copyOnSelect": true,
+    "defaultProfile": "{1263d2f7-2a4c-59f3-88c0-88cadd5fde31}",
+    "initialCols": 187,
+    "initialPosition": "0,0",
+    "initialRows": 5,
+    "keybindings": 
+    [
+        {
+            "id": null,
+            "keys": "win+sc(41)"
+        }
+    ],
+    "launchMode": "maximized",
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles": 
+    {
+        "defaults": 
+        {
+            "font": 
+            {
+                "face": "Ubuntu Mono",
+                "size": 13
+            },
+            "opacity": 70,
+            "padding": "15",
+            "useAcrylic": false
+        },
+        "list": 
+        [
+            {
+                "guid": "{1263d2f7-2a4c-59f3-88c0-88cadd5fde31}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Microsoft.WSL",
+                "startingDirectory": "//wsl.localhost/Ubuntu/home/maks_"
+            },
+            {
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            }
+        ]
+    },
+    "schemes": [],
+    "showTabsInTitlebar": false,
+    "themes": []
+}

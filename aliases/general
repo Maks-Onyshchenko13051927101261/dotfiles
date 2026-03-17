@@ -9,16 +9,6 @@ alias drop='sudo sh -c "echo 3 > /proc/sys/vm/drop_caches"'
 alias clean_hist='rm ~/.zsh_history && history -c'
 alias ver='python3 --version && pip3 --version'
 
-# Дані системи (Neofetch + трохи магії)
-sysinfo() {
-  echo "--- System Status ---"
-  neofetch --off # Виводить інфу без логотипа
-  echo "--- Disk Usage ---"
-  df -h | grep "/dev/sd" # Покаже тільки реальні диски
-  echo "--- Memory ---"
-  free -h
-}
-
 # Навігація та Провідник
 alias win='explorer.exe .'
 alias ..='cd ..'
@@ -30,6 +20,10 @@ alias gs='git status'
 alias gcb='git checkout -b'
 alias gcam='git commit -am'
 alias gp='git push'
+
+# npm
+alias run='npm run dev'
+alias in='npm install'
 
 # Швидкий пуш: gpush "текст"
 gpush() {
