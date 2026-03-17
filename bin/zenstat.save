@@ -1,0 +1,77 @@
+#!/bin/bash
+
+TEMP_FILE="/mnt/c/temp/cpu_temp.txt"
+
+run_check() {
+  clear
+  TIME=$(date -d "+2 hours" +"%H:%M:%S")
+
+  echo -e "\033[0;36m--- ⛩️  ZENSTAT V3.2 | ⌚ $TIME ---\033[0m"
+
+  # 1. SYSTEM INFO
+  UPTIME=$(uptime -p | sed 's/up //')
+  IP_ADDR=$(hostname -I | awk '{print $1}')
+  echo -e "🕒 Uptime: \033[0;32m$UPTIME\033[0m"
+  echo -e "🌐 Local IP: \033[0;32m$IP_ADDR\033[0m"
+  echo -e "\033[0;36m---------------------------------------\033[0m"
+
+  # 2. CPU LOAD
+  load=$(uptime | awk -F'load average:' '{ print $2 }' | sed 's/^ *//')
+  load1=$(echo $load | cut -d, -f1 | tr -d ' ')
+  cores=$(nproc)
+
+  echo -ne "🧠 CPU Load: $load  -> "
+  if (( $(echo "$load1 < $cores" | bc -l) )); then
+    echo -e "\033[0;32mOK\033[0m"
+  else
+    echo -e "\033[0;31mHEAVY\033[0m"
+  fi
+
+  # 3. MEMORY
+  mem=$(free -m | awk '/Mem:/ {print $3, $2}')
+  used=$(echo $mem | cut -d' ' -f1)
+  total=$(echo $mem | cut -d' ' -f2)
+  percent=$(awk "BEGIN {printf \"%.1f\", $used/$total*100}")
+
+  echo -ne "💾 Memory: ${used}MB / ${total}MB (${percent}%) -> "
+  if (( $(echo "$percent < 80" | bc -l) )); then
+    echo -e "\033[0;32mOK\033[0m"
+  else
+    echo -e "\033[0;31mSTRESS\033[0m"
+
+  # 4. TEMPERATURE (FILE-BASED PIPELINE)
+  echo -ne "🌡️  Temperature: "
+  if [ -f "$TEMP_FILE" ]; then
+    temp=$(cat "$TEMP_FILE" | tr -d '\r')
+    if [[ "$temp" != "" && "$temp" != "Error" ]]; then
+      echo -e "\033[0;32m${temp}°C\033[0m"
+    else
+      echo -e "\033[0;31mSensor Error\033[0m"
+    fi
+  else
+    echo -e "\033[1;33mN/A (no source)\033[0m"
+  fi
+
+  # 5. TOP PROCESSES
+  echo -e "\033[0;33m📊 TOP PROCESSES:\033[0m"
+  ps -eo comm,%cpu --sort=-%cpu | head -n 4 | tail -n 3 | \
+    awk '{printf "   %-15s %s%%\n", $1, $2}'
+
+  # 6. STORAGE
+  echo -e "\033[0;35m[ STORAGE ]\033[0m"
+  df -h | grep -E "(Filesystem|/dev/sd)" | \
+    awk '{printf "   %-15s %-5s\n", $1, $5}'
+
+  echo -e "\033[0;36m---------------------------------------\033[0m"
+}
+
+# WATCH MODE
+if [ "$1" == "--watch" ]; then
+  while true; do
+    run_check
+    sleep 1
+  done
+else
+  run_check
+fi
+
