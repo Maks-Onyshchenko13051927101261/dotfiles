@@ -3,7 +3,7 @@ alias nan='nano ~/.zshrc'
 alias sou='source ~/.zshrc'
 
 # Система та чистка
-alias cls='clear'
+alias c='clear'
 alias update='sudo apt update && sudo apt upgrade -y'
 alias drop='sudo sh -c "echo 3 > /proc/sys/vm/drop_caches"'
 alias clean_hist='rm ~/.zsh_history && history -c'
