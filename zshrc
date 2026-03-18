@@ -121,6 +121,10 @@ if [ -d ~/.aliases ]; then
     done
 fi
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # Скільки команд зберігати в пам'яті
 HISTSIZE=1000
 # Скільки команд зберігати у файлі на диску
