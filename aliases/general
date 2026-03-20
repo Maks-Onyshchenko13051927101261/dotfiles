@@ -1,6 +1,7 @@
 # --- Мій пульт керування ---
 alias nan='nano ~/.zshrc'
 alias sou='source ~/.zshrc'
+alias zen='~/dotfiles/bin/state/zen.sh'
 
 # Система та чистка
 alias c='clear'
@@ -14,6 +15,7 @@ alias win='explorer.exe .'
 alias ..='cd ..'
 alias ~='cd ~'
 alias ll='ls -la'
+alias C='cd /mnt/c/Users/maks_/Desktop'
 
 # Git (найходовіші)
 alias gs='git status'
