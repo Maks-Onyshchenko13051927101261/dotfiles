@@ -2,13 +2,13 @@
 alias nan='nano ~/.zshrc'
 alias sou='source ~/.zshrc'
 alias ss='~/dotfiles/bin/state/zen.sh'
-alias lab='~/dotfiles/bin/lab.sh'
+alias lab='~/dotfiles/core/lab.sh'
 
 # Система та чистка
 alias c='clear'
-alias update='sudo apt update && sudo apt upgrade -y'
-alias drop='sudo sh -c "echo 3 > /proc/sys/vm/drop_caches"'
-alias clean_hist='rm ~/.zsh_history && history -c'
+alias c-lnx='lab clean'
+alias c-win='lab win-clean'
+alias clean-all='lab clean && lab win-clean'
 alias ver='python3 --version && pip3 --version'
 
 # Навігація та Провідник
@@ -42,4 +42,4 @@ gpush() {
 }
 
 # Шпора
-alias helpme='cat ~/dotfiles/commands.txt'
+alias helpme='cat ~/dotfiles/aliases/general'
