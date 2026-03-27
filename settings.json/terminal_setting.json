@@ -15,17 +15,25 @@
     "centerOnLaunch": false,
     "copyOnSelect": true,
     "defaultProfile": "{1263d2f7-2a4c-59f3-88c0-88cadd5fde31}",
-    "initialCols": 187,
+    "initialCols": 189,
     "initialPosition": "0,0",
-    "initialRows": 5,
+    "initialRows": 7,
     "keybindings": 
     [
         {
+            "id": "Terminal.ToggleFocusMode",
+            "keys": "f11"
+        },
+        {
             "id": null,
             "keys": "win+sc(41)"
+        },
+        {
+            "id": "User.quakeMode.F1E129A4",
+            "keys": "alt+'"
         }
     ],
-    "launchMode": "maximized",
+    "launchMode": "focus",
     "newTabMenu": 
     [
         {
@@ -36,13 +44,15 @@
     {
         "defaults": 
         {
+            "colorScheme": "Maksymus_Deep_Space",
             "font": 
             {
-                "face": "Ubuntu Mono",
+                "face": "Cascadia Code",
                 "size": 13
             },
-            "opacity": 70,
+            "opacity": 85,
             "padding": "15",
+            "scrollbarState": "hidden",
             "useAcrylic": false
         },
         "list": 
@@ -61,7 +71,34 @@
             }
         ]
     },
-    "schemes": [],
+    "schemes": 
+    [
+        {
+            "background": "#0D0F12",
+            "black": "#21222C",
+            "blue": "#8BE9FD",
+            "brightBlack": "#6272A4",
+            "brightBlue": "#D6ACFF",
+            "brightCyan": "#0056D2",
+            "brightGreen": "#69FF94",
+            "brightPurple": "#FF92DF",
+            "brightRed": "#FF6E6E",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#E9AD35",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#0047AB",
+            "foreground": "#E1E1E1",
+            "green": "#50FA7B",
+            "name": "Maksymus_Deep_Space",
+            "purple": "#FF79C6",
+            "red": "#FF5555",
+            "selectionBackground": "#44475A",
+            "white": "#F8F8F2",
+            "yellow": "#C69026"
+        }
+    ],
     "showTabsInTitlebar": false,
-    "themes": []
+    "showTerminalTitleInTitlebar": false,
+    "themes": [],
+    "windowingBehavior": "useNew"
 }

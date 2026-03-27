@@ -1,7 +1,8 @@
 # --- Мій пульт керування ---
 alias nan='nano ~/.zshrc'
 alias sou='source ~/.zshrc'
-alias zen='~/dotfiles/bin/state/zen.sh'
+alias ss='~/dotfiles/bin/state/zen.sh'
+alias lab='~/dotfiles/bin/lab.sh'
 
 # Система та чистка
 alias c='clear'
@@ -15,7 +16,13 @@ alias win='explorer.exe .'
 alias ..='cd ..'
 alias ~='cd ~'
 alias ll='ls -la'
-alias C='cd /mnt/c/Users/maks_/Desktop'
+alias C='cd /mnt/c/Users/maks_/'
+
+# . = швидке відкриття VS Code (Студії) в поточному місці
+alias .='code .'
+
+# open = абракадабра xdg-open для всього
+alias open='xdg-open'
 
 # Git (найходовіші)
 alias gs='git status'

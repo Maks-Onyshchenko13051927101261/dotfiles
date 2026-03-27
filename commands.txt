@@ -1,42 +1,26 @@
 ------------------------------------------------ 
-                  zenstat
+                  ZenSlothFlow
 -------------------------------------------------
 --- 🛠️ МІЙ ЦЕНТР КЕРУВАННЯ (Aliases & Cmds) -- 
 -------------------------------------------------
-🚀 ШВИДКИЙ GIT (gpush "message")
-  gs          - Статус репозиторію
-  gcb         - Створити нову гілку та перейти
-  gcam        - Commit -am (додати все + комент)
-  gp          - Відправити в хмару (git push)
-  gpush "msg" - Повний цикл: add + commit + push однією командою!
+🌐 БРАУЗЕРИ (Workspaces):
+  ch         - Chrome (Work/Education/Google)
+  ed         - Edge (Social/Communication PWA)
+  lab [arg]  - Chromium Dev Lab (gpt, gem, post, hub, all)
 
-📦 РОБОТА З NPM
-  run         - Запуск проекту (npm run dev)
-  in          - Встановити залежності (npm install)
+📁 СИСТЕМА ТА ДЕВ:
+  .          - Open VS Code (Studio) in WSL
+  ss         - Run zen.sh state
+  win        - Explore current folder in Windows
+  update     - Upgrade Ubuntu system
+  drop       - Clear RAM cache
 
-⚙️ СИСТЕМА ТА ОБСЛУГОВУВАННЯ
-  nan         - Редагувати .zshrc (головний конфіг)
-  sou         - Оновити налаштування (source)
-  update      - Оновити Ubuntu та пакети
-  drop        - Очистити RAM кеш (вивільнити пам'ять)
-  clean_hist  - Стерти історію команд (чистота!)
-  ver         - Перевірити версії Python та Pip
-  c           - Очистити екран термінала
+📦 ВЕРСІЙНІСТЬ ТА NPM:
+  gs / gp    - Git status / Git push
+  gpush ".." - Full Git cycle (add+commit+push)
+  in / run   - npm install / npm run dev
 
-📂 НАВІГАЦІЯ ТА ФАЙЛИ
-  win         - Відкрити поточну папку у Windows
-  ll          - Список усіх файлів (з прихованими)
-  ..          - На рівень вгору
-  ~           - Додому (в корінь користувача)
-  C           - C:\Desktop
-
-🔍 ШВИДКІ ПОРАДИ (Linux basics)
-  grep -r     - Знайти слово всередині файлів
-  htop        - Диспетчер завдань (процеси/RAM)
-  pwd         - Де я зараз? (шлях до папки)
-  mkdir name  - Створити нову папку
-  touch file  - Створити пустий файл
-  rm -rf      - ВИДАЛИТИ ВСЕ (використовуй з розумом!)
-
-----------------------------------------------
-Потрібна допомога? Просто напиши: helpme
+⚙️ КОНФІГ:
+  nan / sou  - Edit or Reload .zshrc
+  helpme     - Show this Cheat Sheet
+==================================================
