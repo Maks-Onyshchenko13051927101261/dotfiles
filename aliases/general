@@ -18,23 +18,15 @@ alias ~='cd ~'
 alias ll='ls -la'
 alias C='cd /mnt/c/Users/maks_/'
 
-# . = швидке відкриття VS Code (Студії) в поточному місці
-alias .='code .'
-
 # open = абракадабра xdg-open для всього
 alias open='xdg-open'
-
-# Git (найходовіші)
-alias gs='git status'
-alias gcb='git checkout -b'
-alias gcam='git commit -am'
-alias gp='git push'
 
 # npm
 alias run='npm run dev'
 alias in='npm install'
 
-# Швидкий пуш: gpush "текст"
+# Git
+alias cmt='git commit -am'
 gpush() {
   git add .
   git commit -m "$1"

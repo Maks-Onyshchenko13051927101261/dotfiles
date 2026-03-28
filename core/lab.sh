@@ -7,6 +7,9 @@ SILENT="> /dev/null 2>&1"
 
 case "$1" in
     # --- [Apps] ---
+    bro)
+	eval "$BROWSER $ARGS ${2:-} $SILENT &"
+	;;
     gpt)
         eval "$BROWSER $ARGS --app=https://chatgpt.com $SILENT &"
         ;;
@@ -55,6 +58,6 @@ case "$1" in
 
     *)
         echo "🧪 LAB CORE v1.0"
-        echo "Usage: lab [gpt|gem|post|hub|all] | [clean|win-clean|fix|dev-reset]"
+        echo "Usage: lab [bro|gpt|gem|post|hub|all] | [clean|win-clean|fix|dev-reset]"
         ;;
 esac
