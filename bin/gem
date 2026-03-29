@@ -1,0 +1,60 @@
+#!/bin/bash
+
+echo "🚀 Запускаємо GEM-ініціалізацію для @maks..."
+
+# 1. Базові конфіги (ESLint + Prettier)
+echo '{ "extends": "eslint-config-zen-dev" }' > .eslintrc.json
+echo '{
+  "semi": true,
+  "tabWidth": 4,
+  "printWidth": 100,
+  "singleQuote": false,
+  "trailingComma": "es5"
+}' > .prettierrc
+
+# 2. Створюємо README.md 
+if [ ! -f README.md ]; then
+    echo "# 🚀 Новий Проєкт
+    
+## 🛠 Стек технологій
+- Frontend: React / Next.js
+- Backend: Python / Node.js
+- Database: MySQL / MongoDB
+- Infrastructure: Docker
+
+## ⚙️ Як запустити
+1. npm install
+2. npm run dev" > README.md
+    echo "📝 README.md створено"
+fi
+
+# 3. Створюємо Docker Compose (Заготовка на майбутнє)
+if [ ! -f docker-compose.yml ]; then
+    echo "version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+  # db:
+  #   image: mysql:8.0
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root" > docker-compose.yml
+    echo "🐳 docker-compose.yml додано"
+fi
+
+# 4. Робота з .gitignore
+if [ ! -f .gitignore ]; then touch .gitignore; fi
+for item in "node_modules/" ".env" "__pycache__/" "*.pyc" "dist/"; do
+    if ! grep -q "$item" .gitignore; then
+        echo "$item" >> .gitignore
+    fi
+done
+echo "🛡 .gitignore оновлено"
+
+# 5. Підключаємо пакет
+npm install ~/dev/zen-dev --save-dev
+
+echo "🏁 Все готово! Твій космоліт чекає в Студії."

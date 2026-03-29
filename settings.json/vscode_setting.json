@@ -21,18 +21,49 @@
     "editor.renderWhitespace": "boundary",
     "editor.guides.indentation": true,
     "editor.inlineSuggest.enabled": true,
+
+    // --- Магія автоматизації (ESLint + Сортування) ---
     "editor.codeActionsOnSave": {
-	"source.fixAll.eslint": "always"
-	},
+        "source.fixAll.eslint": "always",
+        "source.organizeImports": "always"
+    },
     
+    // --- Форматування по мовах ---
     "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true
+    },
+
     "eslint.validate": ["javascript", "typescript", "typescriptreact"],
 
+    // --- Візуал та Іконки ---
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.editor.enablePreview": false,
+    "editor.linkedEditing": true,
+
+    // --- Безпека та Мережа ---
     "extensions.autoUpdate": false,
-    "extensions.ignoreRecommendations": true
+    "extensions.ignoreRecommendations": true,
+    "security.allowedUNCHosts": [
+        "wsl.localhost"
+    ],
+
+    // --- Прибирання залишків чату та шуму ---
+    "chat.agent.enabled": false,
+    "chat.checkpoints.enabled": false,
+    "chat.customAgentInSubagent.enabled": false,
+    "chat.extensionUnification.enabled": false,
+    "workbench.secondarySideBar.defaultVisibility": "hidden"
 }
