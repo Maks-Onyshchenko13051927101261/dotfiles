@@ -27,22 +27,47 @@ while true; do
     # Опитування Windows (раз на 10 сек)
     if (( SECONDS % 10 == 0 || SECONDS < 2 )); then
         W_DATA=$(get_windows_stats)
-        W_USED_KB=$(echo "$W_DATA" | cut -d'|' -f1)
-        W_TOTAL_GB_RAM=$(echo "$W_DATA" | cut -d'|' -f2)
-        W_TOP_PROC=$(echo "$W_DATA" | cut -d'|' -f3)
-        W_SSD_FREE=$(echo "$W_DATA" | cut -d'|' -f4)
-        W_SSD_PCT=$(echo "$W_DATA" | cut -d'|' -f5)
-        W_TOTAL_CPU=$(echo "$W_DATA" | cut -d'|' -f6)
-        W_HEALTH=$(echo "$W_DATA" | cut -d'|' -f7) # Наш новий пульс
 
-        [[ -n "$W_USED_KB" ]] && WIN_RAM_STR="$((W_USED_KB / 1024 / 1024 / 1024))/${W_TOTAL_GB_RAM}GB" || WIN_RAM_STR="Sync..."
-        
-        # Колір для здоров'я SSD
+        # Розпаковка даних з модуля
+        W_USED_GB=$(echo "$W_DATA" | cut -d'|' -f1)
+        W_TOTAL_GB=$(echo "$W_DATA" | cut -d'|' -f2)
+        W_TOP_PROC=$(echo "$W_DATA" | cut -d'|' -f3)
+        W_TOTAL_CPU=$(echo "$W_DATA" | cut -d'|' -f4)
+        W_SSD_FREE=$(echo "$W_DATA" | cut -d'|' -f5)
+        W_SSD_PCT=$(echo "$W_DATA" | cut -d'|' -f6)
+        W_HEALTH=$(echo "$W_DATA" | cut -d'|' -f7)
+
+        # 🧠 CPU Колір
+        CPU_COLOR=$COLOR_GREEN
+        [[ -n "$W_TOTAL_CPU" ]] && (( W_TOTAL_CPU > 50 )) && CPU_COLOR=$COLOR_YELLOW
+        [[ -n "$W_TOTAL_CPU" ]] && (( W_TOTAL_CPU > 85 )) && CPU_COLOR=$COLOR_RED
+        W_CPU_STR="${CPU_COLOR}${W_TOTAL_CPU:-0}%${COLOR_RESET}"
+
+        # 💾 RAM Колір (якщо більше 90% зайнято - червоний)
+        if [[ -n "$W_USED_GB" && "$W_TOTAL_GB" != "0" ]]; then
+            RAM_COLOR=$COLOR_CYAN
+            RAM_USAGE=$(( W_USED_GB * 100 / W_TOTAL_GB ))
+            (( RAM_USAGE > 90 )) && RAM_COLOR=$COLOR_RED
+            WIN_RAM_STR="${RAM_COLOR}${W_USED_GB}/${W_TOTAL_GB}GB${COLOR_RESET}"
+        else
+            WIN_RAM_STR="${COLOR_YELLOW}Sync...${COLOR_RESET}"
+        fi
+
+        # 💽 SSD Колір
+        SSD_COLOR=$COLOR_WHITE
+        [[ -n "$W_SSD_PCT" ]] && (( W_SSD_PCT > 80 )) && SSD_COLOR=$COLOR_YELLOW
+        [[ -n "$W_SSD_PCT" ]] && (( W_SSD_PCT > 95 )) && SSD_COLOR=$COLOR_RED
+        W_SSD_STR="${SSD_COLOR}${W_SSD_FREE:-0} GB Free (${W_SSD_PCT:-0}% Used)${COLOR_RESET}"
+
+        # 🩺 Status Колір
         HEALTH_COLOR=$COLOR_GREEN
         [[ "$W_HEALTH" != "Healthy" ]] && HEALTH_COLOR=$COLOR_YELLOW
-        [[ "$W_HEALTH" == "Unhealthy" ]] || [[ "$W_HEALTH" == "Warning" ]] && HEALTH_COLOR=$COLOR_RED
-    fi
+        [[ "$W_HEALTH" == "Unhealthy" || "$W_HEALTH" == "Warning" ]] && HEALTH_COLOR=$COLOR_RED
+        W_HEALTH_STR="${HEALTH_COLOR}${W_HEALTH:-Sync...}${COLOR_RESET}"
 
+        # 🔥 Top Process Колір
+        W_TOP_STR="${COLOR_CYAN}${W_TOP_PROC:-None}${COLOR_RESET}"
+    fi
     # --- (Рендеринг) ---
     tput cup 0 0
     draw_header
