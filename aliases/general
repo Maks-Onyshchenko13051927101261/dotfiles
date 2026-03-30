@@ -10,6 +10,7 @@ alias c-lnx='lab clean'
 alias c-win='lab win-clean'
 alias clean-all='lab clean && lab win-clean'
 alias ver='python3 --version && pip3 --version'
+alias del='rm -rf'
 
 # Навігація та Провідник
 alias win='explorer.exe .'
@@ -17,8 +18,6 @@ alias ..='cd ..'
 alias ~='cd ~'
 alias ll='ls -la'
 alias C='cd /mnt/c/Users/maks_/'
-
-# open = абракадабра xdg-open для всього
 alias open='xdg-open'
 
 # npm
@@ -32,6 +31,3 @@ gpush() {
   git commit -m "$1"
   git push
 }
-
-# Шпора
-alias helpme='cat ~/dotfiles/aliases/general'
