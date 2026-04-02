@@ -1,8 +1,8 @@
 # --- Мій пульт керування ---
 alias nan='nano ~/.zshrc'
 alias sou='source ~/.zshrc'
-alias ss='~/dotfiles/bin/state/zen.sh'
 alias lab='~/dotfiles/core/lab.sh'
+alias zen='/home/maks_/dotfiles/bin/zen/venv/bin/python3 /home/maks_/dotfiles/bin/zen/main.py'
 
 # Система та чистка
 alias c='clear'
