@@ -3,6 +3,7 @@ alias nan='nano ~/.zshrc'
 alias sou='source ~/.zshrc'
 alias lab='~/dotfiles/core/lab.sh'
 alias zen='/home/maks_/dotfiles/bin/zen/venv/bin/python3 /home/maks_/dotfiles/bin/zen/main.py'
+alias sloth='python3 ~/sloth.py'
 
 # Система та чистка
 alias c='clear'
